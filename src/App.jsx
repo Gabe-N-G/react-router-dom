@@ -3,6 +3,7 @@ import { useState } from 'react';
 import PokemonList from './components/PokemonList';
 import NavBar from './components/NavBar';
 import { Route, Routes } from 'react-router-dom';
+import PokemonDetails from './components/PokemonDetails';
 
 
 const initialState = [
@@ -20,9 +21,14 @@ const App = () => {
       <NavBar/>
       <h1>Pokemon!</h1>
       <Routes>
+          <Route path="*" element={<h2>Oh God, something has gone terribly wrong!</h2>} />
           <Route path="/" element={<h2>Home Page</h2>} />
           <Route path="/pokemon" 
             element={<PokemonList pokemon={pokemon} />} 
+          />
+          <Route
+              path="/pokemon/:pokemonId"
+              element={<PokemonDetails pokemon={pokemon} />}
           />
       </Routes>
     </>
