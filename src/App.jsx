@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import PokemonList from './components/PokemonList';
 import NavBar from './components/NavBar';
+import { Route, Routes } from 'react-router-dom';
+
 
 const initialState = [
   { _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
@@ -17,7 +19,12 @@ const App = () => {
     <>
       <NavBar/>
       <h1>Pokemon!</h1>
-      <PokemonList pokemon={pokemon} />
+      <Routes>
+          <Route path="/" element={<h2>Home Page</h2>} />
+          <Route path="/pokemon" 
+            element={<PokemonList pokemon={pokemon} />} 
+          />
+      </Routes>
     </>
   );
 };
