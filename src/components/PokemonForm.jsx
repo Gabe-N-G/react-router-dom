@@ -1,6 +1,8 @@
 // src/components/PokemonForm.jsx
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; //allows redirects
+
 
 const initialState = {
   name: '',
@@ -11,10 +13,14 @@ const initialState = {
 const PokemonForm = (props) => {
   const [formData, setFormData] = useState(initialState);
 
+  const navigate = useNavigate(); //redirecting 
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     props.addPokemon(formData); //form data is being passed up. to the addpokemon function in app.jsx 
     setFormData(initialState);  
+    navigate('/pokemon'); //redirct to pokemon all page
     };
 
   //usually just use (e) + e.target... 

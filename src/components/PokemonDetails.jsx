@@ -25,4 +25,3 @@ const PokemonDetails = (props) => {
   };
   
   export default PokemonDetails;
-  
